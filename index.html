@@ -4,18 +4,18 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>AngularJS</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="Presentation at IFPR">
+		<meta name="author" content="Igor Santana, Guilherme Siquinelli, Rafael Mangolin">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
+		<link rel="icon" href="favicon.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/simple.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -41,18 +41,100 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
+					<h1>AngularJS</h1>
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<a href="https://github.com/opsigor">@opsigor</a> | <a href="https://github.com/guiseek">@guiseek</a> | <a href="https://github.com/rafaelMangolin">@rafaelMangolin</a>
 					</p>
 				</section>
 
 				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-					</p>
+					<section>
+						<h2>Um pouco de história antes...</h2>
+					</section>
+					<section>
+						<h3><strong>Javascript</strong></h3>
+						<p>1995</p>
+						<p><small>Brendan Eich</small></p>
+					</section>
+					<section>
+						<h3><strong>XMLHttpRequest</strong></h3>
+						<p>1999</p>
+						<p><small>Internet Explorer 5</small></p>
+						<aside class="notes">
+							Utilizado para trazer informação do servidor para o cliente durante
+							a execução do JavaScript.
+						</aside>
+					</section>
+					<section>
+						<h3><strong>JSON (Javascript Object Notation)</strong></h3>
+						<p>2001</p>
+						<p><small>Douglas Crockford</small></p>
+						<aside class="notes">
+							Padrão utilizado para guardar informações utilizando a sintaxe
+							do Javascript. Pode ser colocado em um JSON: Objetos, Strings, Numbers e Booleanos.
+						</aside>
+					</section>
+					<section>
+						<h3><strong>AJAX</strong></h3>
+						<p>2005</p>
+						<p><small>Google Maps</small></p>
+						<aside class="notes">
+							Conjunto de tecnologias utilizadas para atualizar somente uma parte da página
+							de acordo com as informações buscadas pelo XMLHttpRequest. Com o Ajax, outras
+							características foram trocadas, como por exemplo a utilização de JSON ao invés de XML,
+							WebSockets ao invés de HTTP.
+						</aside>
+					</section>
+					<section>
+						<h3><strong>jQuery</strong></h3>
+						<p>2006</p>
+						<p><small>John Resig</small></p>
+						<aside class="notes">
+							jQuery é uma biblioteca que foi e é bastante utilizada para a manipulação do HTML,
+							pos abstrai e muito o tanto de código necessário.
+						</aside>
+					</section>
+					<section>
+						<h3><strong>NodeJS</strong> (v8)</h3>
+						<p>2009</p>
+						<p><small>Ryan Dahl</small></p>
+						<aside class="notes">
+							<ul>
+								<li>Usa uma API não-bloqueante em uma thread.</li>
+								<li>Developers Web já utilizam Javascript</li>
+								<li>Baseado em Eventos(callbacks) pois já era utilizado com a DOM.</li>
+							</ul>
+						</aside>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Arquitetura Cliente/Servidor</h2>
+					</section>
+					<section>
+						<h3>Arquitetura mais utilizada hoje em dia.</h3>
+						<img src="./imgs/Cliente-Servidor.jpg" alt="Arquitetura Cliente Servidor"/>
+					</section>
+
+					<section>
+						<h3>Além da Cliente/Servidor, qual outra arquitetura é utilizada hoje em dia?</h3>
+					</section>
+					<section data-background="./imgs/torrent-reaction.gif">
+						<h3 style="color: #fff">Peer-to-Peer <strong>( Torrent )</strong></h3>
+					</section>
+					<section>
+						<h3>E porquê estamos falando de arquitetura Cliente/Servidor?</h3>
+					</section>
+					<section>
+						<h3>Antes do Angular</h3>
+						<img src="./imgs/ifpr-cs-01.png" alt="Arquitetura Cliente Servidor mais usada">
+						<small>Apresentação Distribuída</small>
+					</section>
+					<section>
+						<h3>Com o Angular</h3>
+						<img src="./imgs/ifpr-cs-02.png" alt="Arquitetura Cliente Servidor mais usada">
+						<small>Lógica Distribuída</small>
+					</section>
 				</section>
 
 				<!-- Example of nested vertical slides -->
@@ -392,7 +474,7 @@ Reveal.addEventListener( 'customevent', function() {
 				history: true,
 				center: true,
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transition: 'concave', // none/fade/slide/convex/concave/zoom
 
 				// Optional reveal.js plugins
 				dependencies: [
