@@ -211,10 +211,56 @@
 						</section>
 				</section>
 				<section>
-						<h2>Two Way Data-Binding</h2>
+						<section>
+								<h2>Two Way Data-binding</h2>
+						</section>
+						<section>
+								<h3>Two Way Data-binding</h3>
+								<p><b>Bind em <i>frameworks</i> convencionais</b>: Acontece apenas em uma direção e quando ocorre a atualização na <i>View</i> não se reflete no <i>Model</i>.
+									<br><br><b>Bind com Angular</b>: Acontece em ambas direções e qualquer atualização na <i>View</i> é refletida no <i>Model</i> e vice-versa.
+								</p>
+						</section>
+						<section ng-app="myApp" ng-controller="Controller">
+								<h3>Two Way Data-binding</h3>
+								<input type="text" ng-model="nome" style="width: 50%;height: 30px" />
+								<p>Olá, {{nome}}!</p>
+						</section>
 				</section>
 				<section>
-						<h2>Directives</h2>
+						<section>
+								<h2>Diretivas</h2>
+						</section>
+						<section>
+								<h3>Diretiva</h3>
+								<p>Diretivas são marcações no HTML feitas por meio de <b>Elementos</b>, <b>Atributos</b> e <b>Classes CSS</b>.
+									<br><br>O Angular já possui um conjunto de diretivas, como  <i>ngModel</i>, <i>ngClass</i>, <i>ngStyle</i> e <i>ngRepeat</i>
+									<br><br>Também é possível criar suas próprias diretivas, facilitando o reuso de componentes no sistema</p>
+						</section>
+						<section>
+								<h3>Diretiva</h3>
+								<pre><code class="hljs" data-trim style="height:520px;width:100%">
+angular.module('app.sample', [])
+var myModule = angular.module(...);
+
+myModule.directive('minhaDiretiva', function factory(injectables) {
+  var directiveDefinitionObject = {
+    priority: 0,
+    template: '<div></div>'
+    // or
+    // templateUrl: 'directive.html'
+    restrict: 'A', //E,C
+    scope: false,
+    require: ['^form','ngModel']
+    compile: function compile(tElement, tAttrs, transclude) {},
+   	link: function postLink( ... ) { ... }
+  };
+  return directiveDefinitionObject;
+});
+								</code></pre>
+								<pre><code class="hljs" data-trim style="width:100%">
+	<div minha-diretiva></div>
+								</code></pre>
+						</section>
 				</section>
 				<section>
 						<section>
@@ -239,7 +285,7 @@ describe('Testing Sample', function(){
   var age = 20;
 
   describe('Testing variable x', function(){
-		
+
     it('Should be greater than 05', function(){
       expect(age).toBeGreaterThan(18);
     })
@@ -260,8 +306,12 @@ describe('Testing Sample', function(){
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
+		<script src="angular.min.js"></script>
 
 		<script>
+			angular.module('myApp',[]).controller('Controller',['$scope',function($scope){
+				$scope.nome = 'UFPR Campus Paranavaí';
+			}])
 
 			// Full list of configuration options available at:
 			// https://github.com/hakimel/reveal.js#configuration
